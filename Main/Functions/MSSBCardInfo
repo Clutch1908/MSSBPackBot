@@ -1,0 +1,28 @@
+import discord
+from Resources import MSSBCardDatabase
+
+intents = discord.intents.default()
+itents.message_content = True
+
+client = discord.client(intents=intents)
+
+@client.event
+async def on_ready():
+    print(f'{client.user} is open!')
+
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+
+    if message.content.startswith('$hello'):
+        await message.channel.send('Hello!')
+
+client.run('MTQwODQ4NDIzNDczMzI4OTY1NA.G5eTey.idz8j7w6Ad9y1iVxsRDhq7mbQLfxtZ5TdhnF2s')
+
+#@commands.command()
+#@commands.cooldown(1, 2, commands.BucketType.user)
+#async def cardinfo(self, ctx, card: str):
+    #make user input case insensitive
+    #card = card.lower()
+    #selectedCard =  MSSBCardDatabase.selectedCard()
