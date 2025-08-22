@@ -10,7 +10,7 @@ class BabyLuigi:
     odds = '1 : 11.90'
     description = "The younger of the baby Mario brothers. After being abducted by Kamek, he was rescued by Yoshi and Baby Mario. If you see him and Luigi in the same game, try to ignore the temporal paradox. Baby Luigi is quick around the bases but doesn't hit for power. He is, after all, a baby."
     #store image path as a string to be utilized in other scripts
-    image = 'Main/Trading Cards/BabyLuigi.png'
+    image = 'main/trading_cards/BabyLuigi.png'
     #define variable to store number of times class has been called upon. 
     _count = count(1)
     #utilize function to count the number of times a class has been called
@@ -23,7 +23,7 @@ class BabyMario:
     kind = 'Character'
     odds = '1 : 11:90'
     description = "The elder of the baby Mario brothers. After arriving in a stork-related calamity, he and Yoshi rescued his little bro. Though he's supposed to be Mario in his youth, you can play them both at the same time for some reason. He has excellent foot speed but lacks power due to his diminutive size."
-    image = 'Main/Trading Cards/BabyMario.png'
+    image = 'main/trading_cards/BabyMario.png'
     _count = count(1)
     def __init__(self):
         self.count = next(self._count)
@@ -34,7 +34,7 @@ class Birdo:
     kind = 'Character'
     odds = '1 : 140'
     description: ""
-    image = 'Main/Trading Cards/Birdo.png'
+    image = 'main/trading_cards/Birdo.png'
     _count = count(1)
     def __init__(self):
         self.count = next(self._count)
@@ -45,7 +45,7 @@ class BlackShyGuy:
     kind = 'Character'
     odds = '1 : 7.66'
     description: ""
-    image = 'Main/Trading Cards/BlackShyGuy.png'
+    image = 'main/trading_cards/BlackShyGuy.png'
     _count = count(1)
     def __init__(self):
         self.count = next(self._count)
@@ -56,7 +56,7 @@ class BlueDryBones:
     kind = 'Character'
     odds = '1 : 7.66'
     description: ""
-    image = 'Main/Trading Cards/BlueDryBones.png'
+    image = 'main/trading_cards/BlueDryBones.png'
     _count = count(1)
     def __init__(self):
         self.count = next(self._count)
@@ -67,7 +67,7 @@ class BlueNoki:
     kind = 'Character'
     odds = '1 : 7.66'
     description: ""
-    image = 'Main/Trading Cards/BlueNoki.png'
+    image = 'main/trading_cards/BlueNoki.png'
     _count = count(1)
     def __init__(self):
         self.count = next(self._count)
@@ -78,7 +78,7 @@ class BluePianta:
     kind = 'Character'
     odds = '1 : 7.66'
     description: ""
-    image = 'Main/Trading Cards/BluePianta.png'
+    image = 'main/trading_cards/BluePianta.png'
     _count = count(1)
     def __init__(self):
         self.count = next(self._count)
@@ -89,7 +89,7 @@ class BlueShyGuy:
     kind = 'Character'
     odds = '1 : 7.66'
     description: ""
-    image = 'Main/Trading Cards/BlueShyGuy.png'
+    image = 'main/trading_cards/BlueShyGuy.png'
     _count = count(1)
     def __init__(self):
         self.count = next(self._count)
@@ -100,7 +100,7 @@ class BlueToad:
     kind = 'Character'
     odds = '1 : 7.66'
     description: ""
-    image = 'Main/Trading Cards/BlueToad.png'
+    image = 'main/trading_cards/BlueToad.png'
     _count = count(1)
     def __init__(self):
         self.count = next(self._count)
@@ -111,7 +111,7 @@ class Boo:
     kind = 'Character'
     odds = '1 : 81.6'
     description: ""
-    image = 'Main/Trading Cards/Boo.png'
+    image = 'main/trading_cards/Boo.png'
     _count = count(1)
     def __init__(self):
         self.count = next(self._count)
@@ -122,7 +122,7 @@ class BoomerangBro:
     kind = 'Character'
     odds = '1 : 450'
     description: ""
-    image = 'Main/Trading Cards/BoomerangBro.png'
+    image = 'main/trading_cards/BoomerangBro.png'
     _count = count(1)
     def __init__(self):
         self.count = next(self._count)
@@ -133,7 +133,7 @@ class Bowser:
     kind = 'Character'
     odds = '1 : 200'
     description: ""
-    image = 'Main/Trading Cards/Bowser.png'
+    image = 'main/trading_cards/Bowser.png'
     _count = count(1)
     def __init__(self):
         self.count = next(self._count)
@@ -144,7 +144,7 @@ class BowserJr:
     kind = 'Character'
     odds = '1 : 11.90'
     description: ""
-    image = 'Main/Trading Cards/BowserJr.png'
+    image = 'main/trading_cards/BowserJr.png'
     _count = count(1)
     def __init__(self):
         self.count = next(self._count)
@@ -155,7 +155,18 @@ class Daisy:
     kind = 'Character'
     odds = '1 : 11.90'
     description: ""
-    image = 'Main/Trading Cards/Daisy.png'
+    image = 'main/trading_cards/Daisy.png'
+    _count = count(1)
+    def __init__(self):
+        self.count = next(self._count)
+
+class DiddyKong:
+    name = 'Diddy Kong'
+    rarity = 'Super Rare'
+    kind = 'Character'
+    odds = '1 : 81.5'
+    description: ""
+    image = 'main/trading_cards/DiddyKong.png'
     _count = count(1)
     def __init__(self):
         self.count = next(self._count)
@@ -167,7 +178,7 @@ class BowserCastle:
     kind = 'Stadium'
     odds = '1 : 10'
     description: "A hot, hot, hot stadium filled with hot, hot lava!"
-    image = 'Main/Trading Cards/BowserCastle.png'
+    image = 'main/trading_cards/BowserCastle.png'
     _count = count(1)
     def __init__(self):
         self.count = next(self._count)
@@ -179,7 +190,7 @@ class CommonStar:
     kind = 'Star Token'
     odds = '1 : 50'
     description: "This token can be used to unlock the superstar potential of one common character"
-    image = 'Main/Trading Cards/CommonStar.png'
+    image = 'main/trading_cards/CommonStar.png'
     _count = count(1)
     def __init__(self):
         self.count = next(self._count)

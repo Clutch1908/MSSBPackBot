@@ -1,0 +1,46 @@
+import discord
+from discord.ext import commands
+from discord import app_commands
+
+class Client(commands.Bot):
+    async def on_ready(self):
+        print(f'{client.user} is open!')
+
+        try:
+            guild = discord.Object(id=1408155647987548332)
+            synced = await self.tree.sync(guild=guild)
+            print(f'Synced {len(synced)} commands to guild {guild.id}')
+        except Exception as e:
+            print(f'Error syncing commands: {e}')
+            
+    async def on_message(self, message):
+        if message.author == self.user:
+            return
+
+intents = discord.Intents.default()
+intents.message_content = True
+client = Client(command_prefix="!", intents=intents)     
+ 
+GUILD_ID = discord.Object(id=1408155647987548332)
+
+@client.tree.command(name="cardinfo", description="Return information for a specific card", guild=GUILD_ID)
+async def cardInfo(self, ctx, card: str):
+    #selectedCard = MSSBCardDatabase.card()
+    title = "Blue Pianta"#selectedCard.name
+    embed = discord.Embed(title=title, color=0xfefe55)
+    rarity = "Common"#selectedCard.rarity
+    kind = "Character"#selectedCard.kind
+    odds = "1 : 7.66"#selectedCard.odds
+    description = "Screw it just test it!"#selectedCard.description
+    embed.add_field(name="Rarity", value=rarity, inline=True)
+    embed.add_field(name="Type", value=kind, inline=True)
+    embed.add_field(name="Odds", value=odds, inline=True)
+    embed.add_field(name="", value=description, inline=False)
+    embed.set_footer(text="In-Game Renders courtsey of Super63. Card Art created by Clutch1908")
+    embed.set_author(name=ctx.author.displayname, icon_url=ctx.author.display_avatar.url)
+    file = discord.File("/workspaces/MSSBPackBot/main/trading_cards/BluePianta.png", filename="image.png")
+    embed.set_thumbnail(url="attachment://image.png")
+    
+    await ctx.send(file=file,embed=embed)
+ 
+client.run('MTQwODQ4NDIzNDczMzI4OTY1NA.G5eTey.idz8j7w6Ad9y1iVxsRDhq7mbQLfxtZ5TdhnF2s')
