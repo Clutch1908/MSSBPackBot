@@ -22,5 +22,5 @@ jobs:
 
       - name: Run Python Script
         run: |
-          pip install requests
+          pip install requests discord.py
           python main/MSSBPackBot.py
