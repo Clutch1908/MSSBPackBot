@@ -4,112 +4,111 @@ on:
   workflow_dispatch:
 
 jobs:
-   run-python-1:
-      permissions:
-        actions: read
-        contents: read
-      runs-on: ubuntu-latest
-      timeout-minutes: 15 #300
-      env:
-       token: ${{ secrets.DISCORD_BOT_KEY }}
-      steps:
-        - name: Checkout Code
-          uses: actions/checkout@v3
+  run-python-1:
+    permissions:
+      actions: read
+      contents: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 15 #300
+    env:
+      token: ${{ secrets.DISCORD_BOT_KEY }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-        - name: Setup Python
-          uses: actions/setup-python@v4
-          with:
-            python-version: '3.11'
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
 
-        - name: Run Python Script
-          run: |
-            pip install requests discord.py
-            python main/MSSBPackBot.py
+      - name: Run Python Script
+        run: |
+          pip install requests discord.py
+          python main/MSSBPackBot.py
+  run-python-2:
+    permissions:
+      actions: read
+      contents: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 15 #300
+    env:
+      token: ${{ secrets.DISCORD_BOT_KEY }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-    run-python-2:
-      permissions:
-        actions: read
-        contents: read
-      runs-on: ubuntu-latest
-      timeout-minutes: 15 #300
-      env:
-       token: ${{ secrets.DISCORD_BOT_KEY }}
-      steps:
-        - name: Checkout Code
-          uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
 
-        - name: Setup Python
-          uses: actions/setup-python@v4
-          with:
-            python-version: '3.11'
-
-        - name: Run Python Script
-          run: |
-            pip install requests discord.py
-            python main/MSSBPackBot.py
+      - name: Run Python Script
+        run: |
+          pip install requests discord.py
+          python main/MSSBPackBot.py
     
-    run-python-3:
-      permissions:
-        actions: read
-        contents: read
-      runs-on: ubuntu-latest
-      timeout-minutes: 15 #300
-      env:
-       token: ${{ secrets.DISCORD_BOT_KEY }}
-      steps:
-        - name: Checkout Code
-          uses: actions/checkout@v3
+  run-python-3:
+    permissions:
+      actions: read
+      contents: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 15 #300
+    env:
+      token: ${{ secrets.DISCORD_BOT_KEY }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-        - name: Setup Python
-          uses: actions/setup-python@v4
-          with:
-            python-version: '3.11'
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
 
-        - name: Run Python Script
-          run: |
-            pip install requests discord.py
-            python main/MSSBPackBot.py
+      - name: Run Python Script
+        run: |
+          pip install requests discord.py
+          python main/MSSBPackBot.py
 
-    run-python-4:
-      permissions:
-        actions: read
-        contents: read
-      runs-on: ubuntu-latest
-      timeout-minutes: 15 #300
-      env:
-       token: ${{ secrets.DISCORD_BOT_KEY }}
-      steps:
-        - name: Checkout Code
-          uses: actions/checkout@v3
+  run-python-4:
+    permissions:
+      actions: read
+      contents: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 15 #300
+    env:
+      token: ${{ secrets.DISCORD_BOT_KEY }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-        - name: Setup Python
-          uses: actions/setup-python@v4
-          with:
-            python-version: '3.11'
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
 
-        - name: Run Python Script
-          run: |
-            pip install requests discord.py
-            python main/MSSBPackBot.py
+      - name: Run Python Script
+        run: |
+          pip install requests discord.py
+          python main/MSSBPackBot.py
 
-      run-python-5:
-      permissions:
-        actions: read
-        contents: read
-      runs-on: ubuntu-latest
-      timeout-minutes: 15 #300
-      env:
-       token: ${{ secrets.DISCORD_BOT_KEY }}
-      steps:
-        - name: Checkout Code
-          uses: actions/checkout@v3
+  run-python-5:
+    permissions:
+      actions: read
+      contents: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 15 #300
+    env:
+      token: ${{ secrets.DISCORD_BOT_KEY }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-        - name: Setup Python
-          uses: actions/setup-python@v4
-          with:
-            python-version: '3.11'
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
 
-        - name: Run Python Script
-          run: |
-            pip install requests discord.py
-            python main/MSSBPackBot.py
+      - name: Run Python Script
+        run: |
+          pip install requests discord.py
+           python main/MSSBPackBot.py
