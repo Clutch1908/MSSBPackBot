@@ -23,7 +23,7 @@ class BabyMario:
     kind = 'Character'
     odds = '1 : 11:90'
     description = "The elder of the baby Mario brothers. After arriving in a stork-related calamity, he and Yoshi rescued his little bro. Though he's supposed to be Mario in his youth, you can play them both at the same time for some reason. He has excellent foot speed but lacks power due to his diminutive size."
-    image = 'main/trading_cards/BabyMario.png'
+    image = 'https://github.com/Clutch1908/MSSBPackBot/blob/db23c69363ae6cf298948ee8fd4dc2d7ba9e7b27/main/trading_cards/BabyMario.png'
     _count = count(1)
     def __init__(self):
         self.count = next(self._count)

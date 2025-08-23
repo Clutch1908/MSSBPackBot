@@ -1,0 +1,24 @@
+name: Run Python Script
+
+on:
+  workflow_dispatch:
+
+env:
+  token: ${{ secrets.DISCORD_BOT_KEY }}
+
+jobs:
+  run-python:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@4
+        with:
+          python-version: '3.11'
+
+      - name: Run Python Script
+        run: |
+          pip install requests
+          python MSSBPackBot.py
