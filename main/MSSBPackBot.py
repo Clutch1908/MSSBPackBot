@@ -36,7 +36,7 @@ async def cardInfo(interaction: discord.Interaction, card:str):
     card = card.lower()
     #pass the user input into a function to 
     cardID = MSSBCharacters.get_character_id(card)
-    if cardID == None
+    if cardID == None:
         await message.channel.send(f'Card not found. Verify your spelling and ensure there are no spaces in your input')
     else:
         #determine which card information to find based on user inupt
