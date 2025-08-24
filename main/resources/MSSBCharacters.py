@@ -274,4 +274,4 @@ aliases = {
 }
 
 def get_card_id(card):
-    return aliases.get(key, None)    
+    return aliases.get(card, None)    

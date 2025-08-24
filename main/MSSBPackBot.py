@@ -6,7 +6,8 @@ import discord
 from discord.ext import commands
 from discord import app_commands
 #import Resource scripts
-from resources import MSSBCardDatabase, MSSBCharacters
+from resources import MSSBCardDatabase
+from resources import MSSBCharacters
 
 #declare Server ID for where bot is running
 GUILD_ID = discord.Object(id=1408155647987548332)
@@ -35,12 +36,12 @@ async def cardInfo(interaction: discord.Interaction, card:str):
     #make user input case insensitive
     card = card.lower()
     #pass the user input into a function to 
-    cardID = MSSBCharacters.get_character_id(card)
+    cardID = MSSBCharacters.get_card_id(card)
     if cardID == None:
         await message.channel.send(f'Card not found. Verify your spelling and ensure there are no spaces in your input')
     else:
         #determine which card information to find based on user inupt
-        selectedCard = MSSBCardDatabase.card_dict(cardID)
+        selectedCard = MSSBCardDatabase.card_dict[cardID]
         #set info to be built into Discord embed
         title = selectedCard.name
         embed = discord.Embed(title=title, color=0xfefe55)
