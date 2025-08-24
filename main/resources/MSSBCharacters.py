@@ -1,65 +1,3 @@
-# Character ID mappings
-mappings = {
-    0: "Mario",
-    1: "Luigi",
-    2: "DK",
-    3: "Diddy",
-    4: "Peach",
-    5: "Daisy",
-    6: "Yoshi",
-    7: "Baby Mario",
-    8: "Baby Luigi",
-    9: "Bowser",
-    10: "Wario",
-    11: "Waluigi",
-    12: "Koopa(G)",
-    13: "Toad(R)",
-    14: "Boo",
-    15: "Toadette",
-    16: "Shy Guy(R)",
-    17: "Birdo",
-    18: "Monty",
-    19: "Bowser Jr",
-    20: "Paratroopa(R)",
-    21: "Pianta(B)",
-    22: "Pianta(R)",
-    23: "Pianta(Y)",
-    24: "Noki(B)",
-    25: "Noki(R)",
-    26: "Noki(G)",
-    27: "Bro(H)",
-    28: "Toadsworth",
-    29: "Toad(B)",
-    30: "Toad(Y)",
-    31: "Toad(G)",
-    32: "Toad(P)",
-    33: "Magikoopa(B)",
-    34: "Magikoopa(R)",
-    35: "Magikoopa(G)",
-    36: "Magikoopa(Y)",
-    37: "King Boo",
-    38: "Petey",
-    39: "Dixie",
-    40: "Goomba",
-    41: "Paragoomba",
-    42: "Koopa(R)",
-    43: "Paratroopa(G)",
-    44: "Shy Guy(B)",
-    45: "Shy Guy(Y)",
-    46: "Shy Guy(G)",
-    47: "Shy Guy(Bk)",
-    48: "Dry Bones(Gy)",
-    49: "Dry Bones(G)",
-    50: "Dry Bones(R)",
-    51: "Dry Bones(B)",
-    52: "Bro(F)",
-    53: "Bro(B)",
-    None: "None"
-}
-
-# Flip dictionary
-reverse_mappings = dict((v, k) for k, v in mappings.items())
-
 # dict of character aliases and corresponding character ID
 aliases = {
     "mario": 0,
@@ -334,3 +272,6 @@ aliases = {
     "b!bro": 53,
     "bbro": 53
 }
+
+def get_card_id(card):
+    return aliases.get(key, None)    
