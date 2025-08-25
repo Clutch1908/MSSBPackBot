@@ -23,6 +23,6 @@ jobs:
 
       - name: Run Python Script
         run: |
-          pip install requests discord.py
+          pip install requests discord.py Pillow
           python main/MSSBPackBot.py
   
