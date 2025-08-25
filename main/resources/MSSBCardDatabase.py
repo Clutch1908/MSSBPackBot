@@ -1,6 +1,15 @@
 #import count tool to track how often a class is called
 from itertools import count
-
+#import paths to allow image to be correctly found based on run location
+from pathlib import Path
+#get current path
+current_path = Path.cwd()
+#get current running parent path, will include current subfolder
+parent_path = current_path.parent
+#get parent of parent path, which will exclude current subfolder
+parent_of_parent = parent_path.parent
+#convert directory to string
+leadPath = str(parent_of_parent)
 #Each class contains static information about each card
 #Character Classes
 class BabyLuigi:
@@ -34,7 +43,7 @@ class Birdo:
     kind = 'Character'
     odds = '1 : 140'
     description = "A dinosaur that spits eggs from her huge mouth. Birdo is very particular when it comes to fashion, though her reliance on the color pink is a bit limiting. Her bow and ring are her pride and joy. Birdo's mouth has massive suction that can even catch a ball by sucking it in."
-    image = 'main/trading_cards/Birdo.png'
+    image = leadPath + 'main/trading_cards/Birdo.png'
     _count = count(1)
     def __init__(self):
         self.count = next(self._count)

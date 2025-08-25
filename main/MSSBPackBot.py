@@ -32,13 +32,14 @@ client = Client(command_prefix="!", intents=intents)
 
 #command to return card information
 @client.tree.command(name="cardinfo", description="Return information for a specific card", guild=GUILD_ID)
+@app_commands.checks.cooldown(1, 5, key=lambda i: (i.user.id))
 async def cardInfo(interaction: discord.Interaction, card:str):
     #make user input case insensitive
     card = card.lower()
     #pass the user input into a function to 
     cardID = MSSBCharacters.get_card_id(card)
     if cardID == None:
-        await message.channel.send(f'Card not found. Verify your spelling and ensure there are no spaces in your input')
+        await interaction.response.send_message(f'Card not found. Verify your spelling and ensure there are no spaces in your input')
     else:
         #determine which card information to find based on user inupt
         selectedCard = MSSBCardDatabase.card_dict[cardID]
@@ -63,5 +64,10 @@ async def cardInfo(interaction: discord.Interaction, card:str):
         embed.set_author(name=interaction.user.name, icon_url=interaction.user.display_avatar.url)
         #send Discord embed
         await interaction.response.send_message(file=file, embed=embed)
+
+@client.tree.error
+async def on_app_command_error(error: app_commands.AppCommandError, interaction: discord.Interaction):
+    if isinstance(error, app_commands.CommandOnCooldown):
+        await interaction.response.send_message(f"Default Error Message: {error}\nCustom: Wait for {error.retry_after} seconds, I'm only a one Toad shop!!!, ephemeral = True")
 
 client.run(TOKEN)
