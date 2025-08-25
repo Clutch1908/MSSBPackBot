@@ -36,8 +36,10 @@ client = Client(command_prefix="!", intents=intents)
 async def cardInfo(interaction: discord.Interaction, card:str):
     #make user input case insensitive
     card = card.lower()
+    print(card)
     #pass the user input into a function to 
     cardID = MSSBCharacters.get_card_id(card)
+    print(cardID)
     if cardID == None:
         await interaction.response.send_message(f'Card not found. Verify your spelling and ensure there are no spaces in your input')
     else:
