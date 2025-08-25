@@ -9,7 +9,7 @@ from discord import app_commands
 from resources import MSSBCardDatabase
 from resources import MSSBCharacters
 #import Service scripts
-from resources import MSSBCardGenerator
+from services import MSSBCardGenerator
 
 #declare Server ID for where bot is running
 GUILD_ID = discord.Object(id=1408155647987548332)
