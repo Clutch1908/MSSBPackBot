@@ -16,7 +16,7 @@ class BabyLuigi:
     name = 'Baby Luigi'
     rarity = 'Rare'
     kind = 'Character'
-    odds = '1 : 11.90'
+    odds = '1 : 11.76'
     description = "The younger of the baby Mario brothers. After being abducted by Kamek, he was rescued by Yoshi and Baby Mario. If you see him and Luigi in the same game, try to ignore the temporal paradox. Baby Luigi is quick around the bases but doesn't hit for power. He is, after all, a baby."
     #store image path as a string to be utilized in other scripts
     image = 'main/trading_cards/BabyLuigi.png'
@@ -30,7 +30,7 @@ class BabyMario:
     name = 'Baby Mario'
     rarity = 'Rare'
     kind = 'Character'
-    odds = '1 : 11:90'
+    odds = '1 : 11.76'
     description = "The elder of the baby Mario brothers. After arriving in a stork-related calamity, he and Yoshi rescued his little bro. Though he's supposed to be Mario in his youth, you can play them both at the same time for some reason. He has excellent foot speed but lacks power due to his diminutive size."
     image = 'main/trading_cards/BabyMario.png'
     _count = count(1)
@@ -151,7 +151,7 @@ class BowserJr:
     name = 'Bowser Jr.'
     rarity = 'Rare'
     kind = 'Character'
-    odds = '1 : 11.90'
+    odds = '1 : 11.76'
     description = "Bowser's exuberant son. Bowser lied to him and convinced Jr. that Peach was his mom, resulting in a chaotic adventure for Mario and company. Bowser thinks the Koopa clan is in good hands with his son. He's not just powerful but also suprisingly skilled."
     image = 'main/trading_cards/BowserJr.png'
     _count = count(1)
@@ -162,7 +162,7 @@ class Daisy:
     name = 'Daisy'
     rarity = 'Rare'
     kind = 'Character'
-    odds = '1 : 11.90'
+    odds = '1 : 11.76'
     description = "Sarasara Land's princess. Mario rescued Daisy from the nasty villain Tatanga. While often compared to Peach, Daisy is both stronger and more tomboyish than her blonde counterpart. She uses a Flower Ball that scatters confusing petals."
     image = 'main/trading_cards/Daisy.png'
     _count = count(1)
@@ -239,7 +239,7 @@ class GreenDryBones:
     name = 'Green Dry Bones'
     rarity = 'Rare'
     kind = 'Character'
-    odds = '1 : 11.90'
+    odds = '1 : 11.76'
     description = "\"He'll be hitting line drives from beyond the grave for all of eternity.\" -- Cornpop"
     image = 'main/trading_cards/GreenDryBones.png'
     _count = count(1)
@@ -250,7 +250,7 @@ class GreenKoopaParatroopa:
     name = 'Green Koopa Paratroopa'
     rarity = 'Rare'
     kind = 'Character'
-    odds = '1 : 11.90'
+    odds = '1 : 11.76'
     description = "\"Man I've seen Para hit liners into the gap as fast as he can fly!\" -- Cornpop"
     image = 'main/trading_cards/GreenKoopaParatroopa.png'
     _count = count(1)
@@ -272,7 +272,7 @@ class GreenNoki:
     name = 'Green Noki'
     rarity = 'Rare'
     kind = 'Character'
-    odds = '1 : 11.90'
+    odds = '1 : 11.76'
     description = "\"Lookin' good Ms. 800!\" -- Cornpop"
     image = 'main/trading_cards/GreenNoki.png'
     _count = count(1)
@@ -481,7 +481,7 @@ class RedPianta:
     name = 'Red Pianta'
     rarity = 'Rare'
     kind = 'Character'
-    odds = '1 : 11.90'
+    odds = '1 : 11.76'
     description = "\"He's just standing there... MENACINGLY!\" -- Patrick Star"
     image = 'main/trading_cards/RedPianta.png'
     _count = count(1)
@@ -514,7 +514,7 @@ class Toadette:
     name = 'Toadette'
     rarity = 'Rare'
     kind = 'Character'
-    odds = '1 : 11.90'
+    odds = '1 : 11.76'
     description = "A cute Toad girl with plaited locks. Though her profile is relatively unknown, she is definitely a cheery, upbeat girl who is full of energy. Taking advantage of her fast legs and light weight, Toadette can make all sorts of difficult plays look completely routine."
     image = 'main/trading_cards/Toadette.png'
     _count = count(1)
@@ -525,7 +525,7 @@ class Toadsworth:
     name = 'Toadsworth'
     rarity = 'Rare'
     kind = 'Character'
-    odds = '1 : 11.90'
+    odds = '1 : 11.76'
     description = "Princess Peach's attendant. Though he says his life gets shorter every time Princess Peach gets abducted, he is always in good health and full of energy. While he lacks for stamina, he makes up for it by making cool plays that take advantage of his long life's worth of experience."
     image = 'main/trading_cards/Toadsworth.png'
     _count = count(1)
@@ -970,8 +970,8 @@ starchance_dict = {
 }
 consumables_dict = {
         1: ExtraPack, 
-        2:Reroll,
-        3:Trade
+        2: Reroll,
+        3: Trade
 }
 misc_dict = {
         1: MissedStarChance

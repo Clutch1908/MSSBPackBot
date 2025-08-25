@@ -8,6 +8,8 @@ from discord import app_commands
 #import Resource scripts
 from resources import MSSBCardDatabase
 from resources import MSSBCharacters
+#import Service scripts
+from resources import MSSBCardGenerator
 
 #declare Server ID for where bot is running
 GUILD_ID = discord.Object(id=1408155647987548332)
@@ -32,14 +34,12 @@ client = Client(command_prefix="!", intents=intents)
 
 #command to return card information
 @client.tree.command(name="cardinfo", description="Return information for a specific card", guild=GUILD_ID)
-@app_commands.checks.cooldown(1, 5, key=lambda i: (i.user.id))
+@app_commands.checks.cooldown(1, 5, key=lambda i:(i.user.id))
 async def cardInfo(interaction: discord.Interaction, card:str):
     #make user input case insensitive
     card = card.lower()
-    print(card)
     #pass the user input into a function to 
     cardID = MSSBCharacters.get_card_id(card)
-    print(cardID)
     if cardID == None:
         await interaction.response.send_message(f'Card not found. Verify your spelling and ensure there are no spaces in your input')
     else:
@@ -67,9 +67,20 @@ async def cardInfo(interaction: discord.Interaction, card:str):
         #send Discord embed
         await interaction.response.send_message(file=file, embed=embed)
 
+@client.tree.command(name="openpack", description="Opens a single pack", guild=GUILD_ID)
+@app_commands.checks.cooldown(1, 5, key=lambda i:(i.user.id))
+async def openPack(interaction: discord.Interaction):
+    title = "Pack Results"
+    embed = discord.Embed(title=title, color=0xfefe55)
+    file = MSSBCardGenerator.openPack()
+    imageLink = "attachment://image.png"
+    embed.set_image(url=imageLink)
+    embed.set_author(name=interaction.user.name, icon_url=interaction.user.display_avatar.url)
+    await interaction.response.send_message(file=file, embed=embed)
+
 @client.tree.error
 async def on_app_command_error(error: app_commands.AppCommandError, interaction: discord.Interaction):
     if isinstance(error, app_commands.CommandOnCooldown):
-        await interaction.response.send_message(f"Default Error Message: {error}\nCustom: Wait for {error.retry_after} seconds, I'm only a one Toad shop!!!, ephemeral = True")
+        await interaction.response.send_message(f"Wait for {error.retry_after} seconds, I'm only a one Toad shop!!!, ephemeral = True")
 
 client.run(TOKEN)
