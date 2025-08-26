@@ -1,15 +1,5 @@
 #import count tool to track how often a class is called
 from itertools import count
-#import paths to allow image to be correctly found based on run location
-from pathlib import Path
-#get current path
-current_path = Path.cwd()
-#get current running parent path, will include current subfolder
-parent_path = current_path.parent
-#get parent of parent path, which will exclude current subfolder
-parent_of_parent = parent_path.parent
-#convert directory to string
-leadPath = str(parent_of_parent)
 #Each class contains static information about each card
 #Character Classes
 class BabyLuigi:
@@ -118,7 +108,7 @@ class Boo:
     name = 'Boo'
     rarity = 'Super Rare'
     kind = 'Character'
-    odds = '1 : 81.6'
+    odds = '1 : 81.57'
     description = "Bowser's underling ghost. Behind the scary face lies a very shy soul. Look most Boos in the eyes and they'll cover their faces... but turn around and they'll attack you! Boos confuse their enemies by flickering in and out of the visible realm, appearing at inconvenient times."
     image = 'main/trading_cards/Boo.png'
     _count = count(1)
@@ -173,7 +163,7 @@ class DiddyKong:
     name = 'Diddy Kong'
     rarity = 'Super Rare'
     kind = 'Character'
-    odds = '1 : 81.5'
+    odds = '1 : 81.50'
     description = "DK's partner and buddy. Diddy's trademark is his red baseball hat. While Donkey Kong boasts incredible power, Diddy's forte is his nimbleness. Using his prehensile tail to great effect, Diddy Kong is a natural feilder who won't ever boot routine balls."
     image = 'main/trading_cards/DiddyKong.png'
     _count = count(1)
@@ -184,7 +174,7 @@ class DixieKong:
     name = 'Dixie Kong'
     rarity = 'Super Rare'
     kind = 'Character'
-    odds = '1 : 81.6'
+    odds = '1 : 81.57'
     description = "Diddy Kong's partner and girlfriend. Her trademark golden ponytail is familiar to monkey fans everywhere. Dixie Kong is just as adventurous as both Diddy Kong and Donkey Kong. Combining great techniques with fast legs, she is a very dependable player."
     image = 'main/trading_cards/DixieKong.png'
     _count = count(1)
@@ -404,7 +394,7 @@ class Peach:
     name = 'Peach'
     rarity = 'Super Rare'
     kind = 'Character'
-    odds = '1 : 81.5'
+    odds = '1 : 81.50'
     description = "The Mushroom Kingdom's princess. Mario has come to her rescue every time she's been kidnapped... which has happened no less than 10 times! Some speculate that having an all-Toad security force may be the problem... She joins the game with a Heart Ball as her weapon."
     image = 'main/trading_cards/Peach.png'
     _count = count(1)

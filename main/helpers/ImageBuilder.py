@@ -2,15 +2,15 @@ from io import BytesIO
 from PIL import Image
 import discord
 
-image_width = 150
-image_height = 300
+image_width = 300
+image_height = 450
 
 def build_pack_image(cardImageList):
     loadedImages = []
     for image in cardImageList:
-        loadedImages.appened(load_image_for_card(image))
+        loadedImages.append(load_image_for_card(image))
     
-    total_width = len(loadedImages)*image_width
+    total_width = len(loadedImages)*(image_width+10)
     total_height = 1*image_height
     pack_image = Image.new('RGBA', (total_width, total_height))
     x_offset = 0
@@ -27,4 +27,4 @@ def convert_image_to_file(pack_image):
         return file
     
 def load_image_for_card(image):
-    return Image.open(image).convert('RGBA')   
+    return Image.open(image).convert('RGBA')

@@ -4,12 +4,10 @@ TOKEN = os.getenv("token")
 #import Discord libraries
 import discord
 from discord.ext import commands
-from discord import app_commands
-#import Resource scripts
-from resources import MSSBCardDatabase
-from resources import MSSBCharacters
 #import Service scripts
-from resources import MSSBCardGenerator
+from services import MSSBCardGenerator
+from services import MSSBCardInfo
+from services import MSSBOddsInfo
 
 #declare Server ID for where bot is running
 GUILD_ID = discord.Object(id=1408155647987548332)
@@ -34,53 +32,38 @@ client = Client(command_prefix="!", intents=intents)
 
 #command to return card information
 @client.tree.command(name="cardinfo", description="Return information for a specific card", guild=GUILD_ID)
-@app_commands.checks.cooldown(1, 5, key=lambda i:(i.user.id))
+#@app_commands.checks.cooldown(1, 5, key=lambda i:(i.user.id))
 async def cardInfo(interaction: discord.Interaction, card:str):
-    #make user input case insensitive
-    card = card.lower()
-    #pass the user input into a function to 
-    cardID = MSSBCharacters.get_card_id(card)
-    if cardID == None:
-        await interaction.response.send_message(f'Card not found. Verify your spelling and ensure there are no spaces in your input')
+    embed, file = MSSBCardInfo.construct_discord_embed(card)
+    if embed == "notfound":
+        await interaction.response.send_message(f'Sorry, but I couldn\'t find that Card. Could you please verify your spelling and ensure there are no spaces in your input? I can take a look again once you do!')
     else:
-        #determine which card information to find based on user inupt
-        selectedCard = MSSBCardDatabase.card_dict[cardID]
-        #set info to be built into Discord embed
-        title = selectedCard.name
-        embed = discord.Embed(title=title, color=0xfefe55)
-        rarity = selectedCard.rarity
-        kind = selectedCard.kind
-        odds = selectedCard.odds
-        description = selectedCard.description
-        imageFile = selectedCard.image
-        #upload file to Discord to be accessed by embed
-        file = discord.File(imageFile, filename="image.png")
-        imageLink = "attachment://image.png"
-        #build Discord embed
-        embed.set_image(url=imageLink)
-        embed.add_field(name="Rarity", value=rarity, inline=True)
-        embed.add_field(name="Type", value=kind, inline=True)
-        embed.add_field(name="Odds", value=odds, inline=True)
-        embed.add_field(name="", value=description, inline=False)
-        embed.set_footer(text="In-Game Renders courtsey of Super63. Card Art created by Clutch1908")
         embed.set_author(name=interaction.user.name, icon_url=interaction.user.display_avatar.url)
         #send Discord embed
-        await interaction.response.send_message(file=file, embed=embed)
+        await interaction.response.send_message(file=file,embed=embed) 
 
 @client.tree.command(name="openpack", description="Opens a single pack", guild=GUILD_ID)
-@app_commands.checks.cooldown(1, 5, key=lambda i:(i.user.id))
+#@app_commands.checks.cooldown(1, 5, key=lambda i:(i.user.id))
 async def openPack(interaction: discord.Interaction):
-    title = "Pack Results"
-    embed = discord.Embed(title=title, color=0xfefe55)
-    file = MSSBCardGenerator.openPack()
-    imageLink = "attachment://image.png"
-    embed.set_image(url=imageLink)
+    embed, file = MSSBCardGenerator.openPack()
     embed.set_author(name=interaction.user.name, icon_url=interaction.user.display_avatar.url)
     await interaction.response.send_message(file=file, embed=embed)
 
-@client.tree.error
-async def on_app_command_error(error: app_commands.AppCommandError, interaction: discord.Interaction):
-    if isinstance(error, app_commands.CommandOnCooldown):
-        await interaction.response.send_message(f"Wait for {error.retry_after} seconds, I'm only a one Toad shop!!!, ephemeral = True")
+@client.tree.command(name="oddsinfo", description="See list of current cards with pull odds", guild=GUILD_ID)
+#@app_commands.checks.cooldown(1, 5, key=lambda i:(i.user.id))
+async def buildOdds(interaction: discord.Interaction):
+    #build message that will iterate through each MSSBCardDatabase dictionary to show the odds of drawing cards
+    oddsMessage, oddsMessage_2, oddsMessage_3 = MSSBOddsInfo.construct_discord_message()
+    print(oddsMessage)
+    print(oddsMessage_2)
+    print(oddsMessage_3)
+    await interaction.response.send_message(oddsMessage)
+    await interaction.followup.send(oddsMessage_2)
+    await interaction.followup.send(oddsMessage_3)
+
+#@client.tree.error
+#async def on_app_command_error(error: app_commands.AppCommandError, interaction: discord.Interaction):
+    #if isinstance(error, app_commands.CommandOnCooldown):
+        #await interaction.response.send_message(f"Wait for {error.retry_after} seconds, I'm only a one Toad shop!!!, ephemeral = True")
 
 client.run(TOKEN)

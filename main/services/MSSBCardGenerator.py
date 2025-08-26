@@ -8,6 +8,8 @@ from importlib import reload
 from helpers import ImageBuilder
 #set up SystemRandom to use non-seeded RNG for packs
 _sysrand = random.SystemRandom()
+#import Discord libraries
+import discord
 
 #define function to open 5 card packs
 def openPack():
@@ -17,18 +19,13 @@ def openPack():
     selectedCardImage_3 = ''
     selectedCardImage_4 = ''
     selectedCardImage_5 = ''
+    #initalize card image list
+    cardImageList = []
     #set up the first 3 card pulls, which will always be common cards
     cardOne = _sysrand.randint(1,23)
     selectedCard = MSSBCardDatabase.common_dict[cardOne]
     selectedCardImage_1 = selectedCard.image
-
-    cardTwo = _sysrand.randint(1,23)
-    selectedCard = MSSBCardDatabase.common_dict[cardTwo]
-    selectedCardImage_2 = selectedCard.image
-
-    cardThree = _sysrand.randint(1,23)
-    selectedCard = MSSBCardDatabase.common_dict[cardThree]
-    selectedCardImage_3 = selectedCard.image
+    cardImageList.append(selectedCardImage_1)
 
     itemCard = _sysrand.randint (1, 10000)
     if itemCard <= 40000:
@@ -81,9 +78,16 @@ def openPack():
         selectedCardImage_4 = selectedCard.image
     else:
         print("Error in code")
+    cardImageList.append(selectedCardImage_4)
+    
+    cardTwo = _sysrand.randint(1,23)
+    selectedCard = MSSBCardDatabase.common_dict[cardTwo]
+    selectedCardImage_2 = selectedCard.image
+    cardImageList.append(selectedCardImage_2)
+
     cardRarity = _sysrand.randint(1, 10000)
     if cardRarity <= 8500:
-        cardFive = _sysrand.ranint(1,10)
+        cardFive = _sysrand.randint(1,10)
         selectedCard = MSSBCardDatabase.rare_dict[cardFive]
         selectedCardImage_5 = selectedCard.image
     elif cardRarity >= 8501 and cardRarity <= 9500:
@@ -150,17 +154,27 @@ def openPack():
             print("Error in code")
         selectedCard = MSSBCardDatabase.secretrare_dict[cardFive]
         selectedCardImage_5 = selectedCard.image
+    cardImageList.append(selectedCardImage_5)
+    
+    cardThree = _sysrand.randint(1,23)
+    selectedCard = MSSBCardDatabase.common_dict[cardThree]
+    selectedCardImage_3 = selectedCard.image
+    cardImageList.append(selectedCardImage_3)
 
-    #create card image list
-    cardImageList = []
-    cardImageList.append(selectedCardImage_1, selectedCardImage_2, selectedCardImage_3, selectedCardImage_4, selectedCardImage_5)
     #pass card image list into Image Helper
     pack_image = ImageBuilder.build_pack_image(cardImageList)
     #pass card image back to helper to convert to file
     pack_file = ImageBuilder.convert_image_to_file(pack_image)
 
+    #construct the Discord embed
+    title = "Pack Results"
+    embed = discord.Embed(title=title, color=0xfefe55)
+    file = pack_file
+    imageLink = "attachment://image.png"
+    embed.set_image(url=imageLink)
+    
     #refresh card counts
     reload(MSSBCardDatabase)
-    
-    return pack_file
+
+    return embed, file
     
