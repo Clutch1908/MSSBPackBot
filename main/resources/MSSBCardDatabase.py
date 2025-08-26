@@ -33,7 +33,7 @@ class Birdo:
     kind = 'Character'
     odds = '1 : 140'
     description = "A dinosaur that spits eggs from her huge mouth. Birdo is very particular when it comes to fashion, though her reliance on the color pink is a bit limiting. Her bow and ring are her pride and joy. Birdo's mouth has massive suction that can even catch a ball by sucking it in."
-    image = leadPath + 'main/trading_cards/Birdo.png'
+    image = 'main/trading_cards/Birdo.png'
     _count = count(1)
     def __init__(self):
         self.count = next(self._count)
