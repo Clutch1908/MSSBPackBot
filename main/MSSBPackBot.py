@@ -152,7 +152,6 @@ class View(discord.ui.View):
             #open packs for the user challenged
             embed_r, file_r, rerollOpened_r, tradeOpened_r = MSSBCardGenerator.openMultiplePacks(5)
             embed_r.set_author(name=interaction.user.name, icon_url=interaction.user.display_avatar.url)
-            print(rerollOpened_r, tradeOpened_r)
             if rerollOpened_r  and not tradeOpened_r:
                 await interaction.followup.send(file=file_r, embed=embed_r)
                 view = ViewRerollR(challengerID=self.challengerID, challengerName = self.challengerName, recipientID = self.recipientID, recipientName = self.recipientName)
@@ -169,7 +168,6 @@ class View(discord.ui.View):
             embed_c, file_c, rerollOpened_c, tradeOpened_c = MSSBCardGenerator.openMultiplePacks(5)
             challenger_user = client.get_user(self.challengerID)
             embed_c.set_author(name=challenger_user.name, icon_url=challenger_user.display_avatar.url)
-            print(rerollOpened_c, tradeOpened_c)
             if rerollOpened_c and not tradeOpened_c:
                 await interaction.followup.send(file=file_c, embed=embed_c)
                 view = ViewRerollC(challengerID=self.challengerID, challengerName = self.challengerName, recipientID = self.recipientID, recipientName = self.recipientName)
