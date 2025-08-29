@@ -207,12 +207,7 @@ def openMultiplePacks(packCount):
         selectedCardImage_1 = selectedCard.image
         cardImageList.append(selectedCardImage_1)
         
-        if packsOpened == 1:
-            itemCard = 4555
-        elif packsOpened == 2:
-            itemCard = 4655
-        else:
-            itemCard = _sysrand.randint (1, 10000)
+        itemCard = _sysrand.randint (1, 10000)
         if itemCard <= 4000:
             stadiumCardWeight = _sysrand.randint (1, 10000)
             if stadiumCardWeight <= 2500:
